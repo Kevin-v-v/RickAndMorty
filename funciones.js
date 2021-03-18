@@ -39,18 +39,15 @@ function getApiData() {
 
 function showApiData(data) {
     var element = document.getElementById("results");
-    var counter = document.createElement("h4");
-    counter.style.color = "blue";
-    counter.innerHTML = "Cantidad de personajes encontrados: " + data.info.count;
-    element.appendChild(counter);
+    var count = document.createElement("h4");
+    count.style.color = "blue";
+    count.innerHTML = "Cantidad de personajes encontrados: " + data.info.count;
+    element.appendChild(count);
 
     for (var i = 0; i < data.results.length; i++) {
         var currentItem = data.results[i];
         var personaje = document.createElement("h5");
-        personaje.innerHTML =
-            '<image class="rounded float-left" height="120" src=" ' +
-            currentItem.image +
-            '"></image>';
+        personaje.innerHTML ='<image class="rounded float-left" height="120" src=" ' + currentItem.image + '"></image>';
         personaje.style.color = "blue";
         var htmlStyle = "<hr/ ><strong>" + currentItem.name + "</strong><br />";
         htmlStyle += "Status: " + currentItem.status;
