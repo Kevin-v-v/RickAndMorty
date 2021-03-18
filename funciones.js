@@ -1,7 +1,6 @@
 var nextPage = "";
 var lastPage = "";
 var currentApiURL = "";
-
 function next() {
     currentApiURL = nextPage;
     getApiData();
@@ -18,6 +17,8 @@ function search() {
     getApiData();
 }
 function getApiData() {
+    debugger;
+    document.getElementById("spinner").style.display = "block";
     document.getElementById("results").innerHTML = "";
     var data = undefined;
     var request = new XMLHttpRequest();
@@ -29,9 +30,11 @@ function getApiData() {
             debugger;
             var resultRawData = this.response;
             data = JSON.parse(resultRawData);
+            document.getElementById("spinner").style.display = "none";
             showApiData(data);
         }
     };
+    
 }
 
 function showApiData(data) {
